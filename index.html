@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PageLock</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { text-align: center; }
+        .view { display: none; }
+        #createView, #decryptView { padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
+        input[type="url"], input[type="password"], input[type="text"] { width: 100%; padding: 10px; margin: 10px 0; box-sizing: border-box; }
+        button { padding: 10px 20px; }
+        #generatedUrl { margin-top: 20px; word-break: break-all; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="createView" class="view">
+            <h1>Lock a Page</h1>
+            <input type="url" id="urlInput" placeholder="Enter URL to lock">
+            <input type="password" id="passwordInput" placeholder="Enter password">
+            <button id="createBtn">Create Link</button>
+            <div id="generatedUrl"></div>
+        </div>
+
+        <div id="decryptView" class="view">
+            <h1>Unlock Page</h1>
+            <input type="password" id="decryptPasswordInput" placeholder="Enter password">
+            <button id="decryptBtn">Unlock</button>
+            <p id="errorMessage" style="color: red;"></p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
