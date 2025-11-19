@@ -7,6 +7,10 @@ const generatedUrl = document.getElementById('generatedUrl');
 const decryptPasswordInput = document.getElementById('decryptPasswordInput');
 const decryptBtn = document.getElementById('decryptBtn');
 const errorMessage = document.getElementById('errorMessage');
+const aboutLink = document.getElementById('aboutLink');
+const aboutModal = document.getElementById('aboutModal');
+const closeButton = document.querySelector('.close-button');
+
 
 const router = () => {
     const hash = window.location.hash.substring(1);
@@ -55,6 +59,21 @@ decryptBtn.addEventListener('click', () => {
         }
     } catch (e) {
         errorMessage.textContent = 'Incorrect password.';
+    }
+});
+
+aboutLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    aboutModal.style.display = 'block';
+});
+
+closeButton.addEventListener('click', () => {
+    aboutModal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+    if (event.target == aboutModal) {
+        aboutModal.style.display = 'none';
     }
 });
 

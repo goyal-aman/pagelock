@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PageLockURL</title>
+    <title>PageLock</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -26,19 +26,26 @@
             font-family: 'Inter', sans-serif;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
             min-height: 100vh;
             background-color: var(--background-light);
             color: var(--text-dark);
             margin: 0;
+        }
+
+        .page-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             padding: 20px;
+            width: 100%;
             box-sizing: border-box;
         }
 
         .main-container {
             width: 100%;
-            max-width: 700px;
+            max-width: 600px;
             background-color: var(--surface-white);
             border: 1px solid var(--border-light);
             border-radius: 12px;
@@ -149,9 +156,14 @@
         }
 
         .footer {
-            margin-top: 50px;
+            padding: 20px;
+            text-align: center;
             font-size: 0.9rem;
             color: var(--text-medium);
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            box-sizing: border-box;
         }
 
         .footer a {
@@ -163,31 +175,112 @@
         .footer a:hover {
             text-decoration: underline;
         }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .header nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .header nav a:hover {
+            text-decoration: underline;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 12px;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <div id="createView" class="">
-            <h2>Create a Locked Link</h2>
-            <p>
-                Share urls secretly.
-            </p>
-            <input type="url" id="urlInput" class="form-control" placeholder="Enter URL to lock (e.g., https://example.com/secret-doc)">
-            <input type="password" id="passwordInput" class="form-control" placeholder="Choose a strong password">
-            <button id="createBtn" class="btn">Generate Secure Link</button>
-            <div id="generatedUrl" style="display: none;"></div>
-        </div>
+    <header class="header">
+        <img src="logo.svg" alt="PageLock Logo" class="logo">
+        <nav>
+            <a href="#" id="aboutLink">Help</a>
+        </nav>
+    </header>
+    <main class="page-content">
+        <div class="main-container">
+            <div id="createView" class="">
+                <input type="url" id="urlInput" class="form-control" placeholder="Enter URL to lock (e.g., https://example.com/secret-doc)">
+                <input type="password" id="passwordInput" class="form-control" placeholder="Choose a strong password">
+                <button id="createBtn" class="btn">Encrypt</button>
+                <div id="generatedUrl" style="display: none;"></div>
+            </div>
 
-        <div id="decryptView" class="form-section" style="display: none;">
-            <h2>Unlock Your Page</h2>
-            <input type="password" id="decryptPasswordInput" class="form-control" placeholder="Enter password to unlock">
-            <button id="decryptBtn" class="btn">Unlock Page</button>
-            <p id="errorMessage" class="text-danger"></p>
+            <div id="decryptView" class="form-section" style="display: none;">
+                <h2>Unlock Your Link</h2>
+                <input type="password" id="decryptPasswordInput" class="form-control" placeholder="Enter password to unlock">
+                <button id="decryptBtn" class="btn">Unlock Link</button>
+                <p id="errorMessage" class="text-danger"></p>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        
+        <p>&copy; 2025 PageLock. All Rights Reserved <a href="https://github.com/goyal-aman">amangoyal</a></p>
+    </footer>
+
+    <div id="aboutModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>How to use</h2>
+            <p>PageLock allows you to encrypt url and share it securely. The recipient will need the password to decrypt the link and access the original page.</p>
+            <h3>How to use:</h3>
+            <ol>
+                <li>Enter the URL you want to lock.</li>
+                <li>Choose a unique phrase to encrypt</li>
+                <li>Click "Encrypt".</li>
+                <li>Share the encrypted link. The part after the '#' contains the encrypted data.</li>
+            </ol>
         </div>
     </div>
-    <footer class="footer">
-        <p>&copy; 2025 <a href="https://github.com/goyal-aman">amangoyal</a>. All Rights Reserved.</p>
-    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="app.js"></script>
