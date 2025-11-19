@@ -6,133 +6,187 @@
     <title>PageLockURL</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --background-color: #2C2C2C;
-            --surface-color: #3B3B3B;
-            --primary-color: #00A67F;
-            --text-color: #F1F1F1;
-            --text-secondary-color: #AAAAAA;
-            --border-color: #555555;
+            --primary-color: #4F46E5;
+            --primary-hover: #4338CA;
+            --background-light: #F9FAFB;
+            --surface-white: #FFFFFF;
+            --text-dark: #1F2937;
+            --text-medium: #4B5563;
+            --border-light: #E5E7EB;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --success-bg: #ECFDF5;
+            --success-text: #047857;
+            --error-text: #DC2626;
         }
+
         body {
-            font-family: 'Source Sans Pro', sans-serif;
+            font-family: 'Inter', sans-serif;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-color: var(--background-color);
-            color: var(--text-color);
+            background-color: var(--background-light);
+            color: var(--text-dark);
             margin: 0;
             padding: 20px;
             box-sizing: border-box;
         }
+
         .main-container {
             width: 100%;
-            max-width: 550px;
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
+            max-width: 700px;
+            background-color: var(--surface-white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
             padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        h1 {
-            font-family: 'Roboto Mono', monospace;
-            font-weight: 500;
+            box-shadow: 0 10px 20px var(--shadow-light);
             text-align: center;
-            margin-bottom: 2.5rem;
-            color: var(--text-color);
         }
+
+        h1 {
+            font-weight: 700;
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        h2 {
+            font-weight: 600;
+            font-size: 1.75rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: var(--text-medium);
+        }
+
+        .form-section {
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border-light);
+        }
+
         .form-control {
             width: 100%;
-            padding: 12px 15px;
-            margin-bottom: 1.5rem;
+            padding: 14px 18px;
+            margin-bottom: 1.25rem;
             box-sizing: border-box;
-            background-color: var(--background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
+            background-color: var(--background-light);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
             font-size: 1rem;
-            color: var(--text-color);
-            font-family: 'Roboto Mono', monospace;
+            color: var(--text-dark);
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
+
         .form-control::placeholder {
-            color: var(--text-secondary-color);
+            color: var(--text-medium);
         }
+
         .form-control:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(0, 166, 127, 0.3);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
         }
+
         .btn {
             width: 100%;
-            padding: 12px 25px;
+            padding: 14px 28px;
             background-color: var(--primary-color);
             color: #fff;
             border: none;
-            border-radius: 4px;
-            font-size: 1rem;
+            border-radius: 8px;
+            font-size: 1.05rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s, box-shadow 0.2s;
             margin-top: 1rem;
         }
+
         .btn:hover {
-            background-color: #008768;
+            background-color: var(--primary-hover);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
         }
+
         #generatedUrl {
-            margin-top: 2rem;
-            padding: 15px;
-            background-color: var(--background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
+            margin-top: 2.5rem;
+            padding: 18px;
+            background-color: var(--success-bg);
+            border: 1px solid #A7F3D0;
+            border-radius: 8px;
             word-break: break-all;
             text-align: left;
-            font-family: 'Roboto Mono', monospace;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--success-text);
+            font-weight: 500;
         }
+
         #generatedUrl a {
             color: var(--primary-color);
             text-decoration: none;
+            font-weight: 600;
         }
+
         #generatedUrl a:hover {
             text-decoration: underline;
         }
+
         .text-danger {
-            color: #E57373 !important;
+            color: var(--error-text) !important;
             text-align: center;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
+            font-weight: 500;
         }
+
         .footer {
-            position: absolute;
-            bottom: 20px;
+            margin-top: 50px;
             font-size: 0.9rem;
-            color: var(--text-secondary-color);
+            color: var(--text-medium);
         }
+
         .footer a {
             color: var(--primary-color);
             text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="main-container">
-        <div id="createView">
-            <h1>PageLockURL</h1>
-            <input type="url" id="urlInput" class="form-control" placeholder="URL to lock">
-            <input type="password" id="passwordInput" class="form-control" placeholder="Password">
-            <button id="createBtn" class="btn">Create Link</button>
+        <div id="createView" class="">
+            <h2>Create a Locked Link</h2>
+            <p>
+                Share urls secretly.
+            </p>
+            <input type="url" id="urlInput" class="form-control" placeholder="Enter URL to lock (e.g., https://example.com/secret-doc)">
+            <input type="password" id="passwordInput" class="form-control" placeholder="Choose a strong password">
+            <button id="createBtn" class="btn">Generate Secure Link</button>
             <div id="generatedUrl" style="display: none;"></div>
         </div>
 
-        <div id="decryptView" style="display: none;">
-            <h1>Unlock Page</h1>
-            <input type="password" id="decryptPasswordInput" class="form-control" placeholder="Password">
-            <button id="decryptBtn" class="btn">Unlock</button>
+        <div id="decryptView" class="form-section" style="display: none;">
+            <h2>Unlock Your Page</h2>
+            <input type="password" id="decryptPasswordInput" class="form-control" placeholder="Enter password to unlock">
+            <button id="decryptBtn" class="btn">Unlock Page</button>
             <p id="errorMessage" class="text-danger"></p>
         </div>
     </div>
     <footer class="footer">
-        <p>&copy; 2025 <a href="https://github.com/goyal-aman">goyal-aman</a>. All Rights Reserved.</p>
+        <p>&copy; 2025 <a href="https://github.com/goyal-aman">amangoyal</a>. All Rights Reserved.</p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
