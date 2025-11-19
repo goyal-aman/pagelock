@@ -31,7 +31,8 @@ createBtn.addEventListener('click', () => {
     const encrypted = CryptoJS.AES.encrypt(url, password).toString();
     const newUrl = `${window.location.href.split('#')[0]}#${encrypted}`;
     
-    generatedUrl.innerHTML = `Your locked URL is: <a href="${newUrl}">${newUrl}</a>`;
+    generatedUrl.innerHTML = `Your locked URL is: <a href="${newUrl}" class="alert-link">${newUrl}</a>`;
+    generatedUrl.style.display = 'block';
 });
 
 decryptBtn.addEventListener('click', () => {
