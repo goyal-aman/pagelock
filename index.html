@@ -3,34 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PageLock</title>
+    <title>PageLockURL</title>
     <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .container { text-align: center; }
-        .view { display: none; }
-        #createView, #decryptView { padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
-        input[type="url"], input[type="password"], input[type="text"] { width: 100%; padding: 10px; margin: 10px 0; box-sizing: border-box; }
-        button { padding: 10px 20px; }
-        #generatedUrl { margin-top: 20px; word-break: break-all; }
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --background-color: #f8f9fa;
+            --text-color: #343a40;
+            --container-bg: #ffffff;
+            --border-color: #dee2e6;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background-color: var(--container-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .view {
+            display: none;
+        }
+        h1 {
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        input[type="url"], input[type="password"], input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        input[type="url"]:focus, input[type="password"]:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        button {
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #generatedUrl {
+            margin-top: 2rem;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            word-break: break-all;
+        }
+        #generatedUrl a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        #generatedUrl a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div id="createView" class="view">
-            <h1>Lock a Page</h1>
+            <h1>PageLockURL</h1>
             <input type="url" id="urlInput" placeholder="Enter URL to lock">
             <input type="password" id="passwordInput" placeholder="Enter password">
             <button id="createBtn">Create Link</button>
-            <div id="generatedUrl"></div>
+            <div id="generatedUrl" style="display: none;"></div>
         </div>
 
         <div id="decryptView" class="view">
             <h1>Unlock Page</h1>
             <input type="password" id="decryptPasswordInput" placeholder="Enter password">
             <button id="decryptBtn">Unlock</button>
-            <p id="errorMessage" style="color: red;"></p>
+            <p id="errorMessage" style="color: red; margin-top: 1rem;"></p>
         </div>
     </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 <a href="https://github.com/goyal-aman">goyal-aman</a>. All Rights Reserved.</p>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="app.js"></script>
