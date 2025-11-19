@@ -97,7 +97,7 @@ decryptBtn.addEventListener('click', () => {
         const originalUrl = decrypted.toString(CryptoJS.enc.Utf8);
 
         if (originalUrl) {
-            window.location.href = originalUrl;
+            window.open(originalUrl, "_blank")
         } else {
             errorMessage.textContent = 'Incorrect password.';
         }
