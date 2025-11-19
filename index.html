@@ -236,6 +236,58 @@
             text-decoration: none;
             cursor: pointer;
         }
+        /* Secure link + copy button styling */
+.secure-link-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.secure-link-input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #E6F8EE; /* soft */
+  background-color: #F8FFFB;
+  font-size: 0.95rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+  color: var(--text-dark);
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* make the input look like your screenshot (rounded left) */
+.secure-link-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.08);
+}
+
+/* Copy button */
+.copy-btn {
+  background: #F3F4F6;
+  color: var(--text-dark);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: transform 0.08s ease, background-color 0.12s ease;
+}
+
+.copy-btn:hover { transform: translateY(-1px); }
+.copy-btn:active { transform: translateY(0); }
+
+/* Copy feedback style */
+.copy-btn.copied {
+  background-color: var(--primary-color);
+  color: white;
+}
+
     </style>
 </head>
 <body>
@@ -251,7 +303,19 @@
                 <input type="url" id="urlInput" class="form-control" placeholder="Enter URL to lock (e.g., https://example.com/secret-doc)">
                 <input type="password" id="passwordInput" class="form-control" placeholder="Choose a strong password">
                 <button id="createBtn" class="btn">Encrypt</button>
-                <div id="generatedUrl" style="display: none;"></div>
+                <!-- <div id="generatedUrl" style="display: none;"></div> -->
+                 <!-- Generated URL block (replaces previous #generatedUrl) -->
+<div id="generatedUrl" style="display: none;">
+    <label style="display:block; font-weight:600; color:var(--success-text); margin-bottom:10px;">Your secure link:</label>
+  
+    <div class="secure-link-row">
+      <input type="text" id="secureLinkInput" readonly class="secure-link-input" aria-label="Secure link" />
+      <button id="copyBtn" class="copy-btn">Copy</button>
+    </div>
+  
+    <p class="hint" style="margin-top:6px; color:var(--text-medium);">Share this link with anyone.</p>
+  </div>
+  
             </div>
 
             <div id="decryptView" class="form-section" style="display: none;">

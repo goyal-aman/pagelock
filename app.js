@@ -34,10 +34,54 @@ createBtn.addEventListener('click', () => {
 
     const encrypted = CryptoJS.AES.encrypt(url, password).toString();
     const newUrl = `${window.location.href.split('#')[0]}#${encrypted}`;
-    
-    generatedUrl.innerHTML = `Your locked URL is: <a href="${newUrl}" class="alert-link">${newUrl}</a>`;
+
+    // show the input + copy button
     generatedUrl.style.display = 'block';
+
+    // create/select the input and button elements
+    const secureLinkInput = document.getElementById('secureLinkInput');
+    const copyBtn = document.getElementById('copyBtn');
+
+    secureLinkInput.value = newUrl;
+
+    // make input select all on focus / click for easier copy
+    secureLinkInput.addEventListener('click', () => {
+        secureLinkInput.select();
+    });
+    secureLinkInput.addEventListener('focus', () => {
+        secureLinkInput.select();
+    });
+
+    // copy function with fallback
+    async function copyToClipboard(text) {
+        try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                await navigator.clipboard.writeText(text);
+            } else {
+                // fallback
+                secureLinkInput.select();
+                const successful = document.execCommand('copy');
+                if (!successful) throw new Error('execCommand copy failed');
+            }
+            // feedback
+            copyBtn.textContent = 'Copied!';
+            copyBtn.classList.add('copied');
+            setTimeout(() => {
+                copyBtn.textContent = 'Copy';
+                copyBtn.classList.remove('copied');
+            }, 1800);
+        } catch (err) {
+            // last resort: prompt the user with the link to copy manually
+            window.prompt('Copy this link', text);
+        }
+    }
+
+    // attach handler (remove old listener by cloning to be safe)
+    const newCopyBtn = copyBtn.cloneNode(true);
+    copyBtn.parentNode.replaceChild(newCopyBtn, copyBtn);
+    newCopyBtn.addEventListener('click', () => copyToClipboard(secureLinkInput.value));
 });
+
 
 decryptBtn.addEventListener('click', () => {
     const password = decryptPasswordInput.value;
