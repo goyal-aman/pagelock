@@ -11,6 +11,7 @@ This entire process happens in the user's browser, meaning no data is ever sent 
 - **Easy to Use:** A simple and intuitive interface for creating and unlocking links.
 - **Open Source:** Free to use, modify, and distribute.
 
+
 ## How to Use
 
 ### Creating a Locked Link
