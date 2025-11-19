@@ -1,13 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PageLock</title>
+    <title>PageLock — Password Protected Links & Encrypted URL Shortener</title>
+
+    <!-- Primary SEO -->
+  <title>PageLock — Password Protected Links & Encrypted URL Shortener</title>
+  <meta name="description" content="PageLock lets you create password-protected, encrypted links in the browser. Generate shareable links with client-side AES encryption — no server, no account. Perfect for privacy-conscious users, developers, and teams." />
+  <meta name="keywords" content="password protected link, encrypted URL shortener, secure link sharing, client-side encryption link, password locked URL, privacy-first URL shortener, AES encryption in browser, share secret URL safely" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://pagelock.top/" />
+
+
+
+  <!-- Social / Open Graph -->
+  <meta property="og:site_name" content="PageLock" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="PageLock — Password Protected Links & Encrypted URL Shortener" />
+  <meta property="og:description" content="Create client-side encrypted links that require a password to open. No backend, no account — privacy-first link sharing." />
+  <meta property="og:url" content="https://pagelock.top/" />
+  <!-- Replace this with your real image (1200x630 recommended) -->
+  <meta property="og:image" content="https://pagelock.top/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PageLock — Password Protected Links" />
+  <meta name="twitter:description" content="Create client-side encrypted links that require a password to open. No backend, no account — privacy-first link sharing." />
+  <meta name="twitter:image" content="https://pagelock.top/og-image.png" />
+
+  <!-- Mobile / theme -->
+  <meta name="theme-color" content="#4F46E5" />
+
+
+
+  <!-- Favicon -->
+      <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+
+
+
+    <!-- Preconnect + fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="logo.svg" type="image/x-icon">
+
+      <!-- Structured data: WebSite + WebApplication + FAQ -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://pagelock.top/#website",
+          "url": "https://pagelock.top/",
+          "name": "PageLock",
+          "description": "Create password-protected, client-side encrypted links. No server, no account.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "PageLock"
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://pagelock.top/#webapp",
+          "name": "PageLock",
+          "url": "https://pagelock.top/",
+          "description": "Generate secure, password-protected links with client-side AES encryption.",
+          "applicationCategory": "SecurityApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://pagelock.top/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is it safe?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Everything happens inside your browser. No data is uploaded, stored, or sent to any server."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long is the locked link valid?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Forever. The link never expires unless you delete it yourself."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you store my URL or password?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Nothing is stored. Both the password and the original URL stay on your device only."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can someone guess my original URL?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. The URL is encrypted using modern encryption (AES). Without the password, the encrypted data is meaningless."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What if I forget the password?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The link can’t be unlocked. There is no recovery option because we never store the key."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can the encrypted link be shared anywhere?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. You can share it on WhatsApp, email, social media, anywhere — only people with the password can unlock it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does PageLock shorten the URL?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not exactly. It creates an encrypted version of your URL, which works like a protected link."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I lock any URL?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. As long as it's a valid link (http or https), you can encrypt it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does PageLock cost anything?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. It’s completely free and has no hidden limits."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need an account?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No account, no login, no signup. Just paste your link → set a password → done."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use it offline?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, after the page loads once. Encryption and decryption still work without internet."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can someone intercept the data while I'm using it?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Since nothing is sent to a server, there is nothing to intercept."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <style>
         :root {
             --primary-color: #4F46E5;
@@ -292,18 +462,28 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <img src="logo.svg" alt="PageLock Logo" class="logo">
-        <nav>
-            <a href="#" id="aboutLink">Help</a>
-        </nav>
-    </header>
+<header class="header">
+    <!-- Hidden but SEO-visible site title -->
+    <h1 style="position:absolute; left:-9999px; top:-9999px; height:1px; width:1px; overflow:hidden;">
+        PageLock — Password-Protected, Encrypted Links
+    </h1>
+
+    <img src="logo.svg" alt="PageLock logo — secure link generator" class="logo">
+
+    <nav>
+        <a href="#" id="aboutLink">Help</a>
+    </nav>
+</header>
+
+  
     <main class="page-content">
         <div class="main-container">
             <div id="createView" class="">
-                <input type="url" id="urlInput" class="form-control" placeholder="Enter URL to lock (e.g., https://example.com/secret-doc)">
+                <input type="url" id="urlInput" class="form-control" aria-label="Secure link" placeholder="Enter URL to lock (e.g., https://example.com/secret-doc)">
                 <input type="password" id="passwordInput" class="form-control" placeholder="Choose a strong password">
-                <button id="createBtn" class="btn">Encrypt</button>
+                <!-- <button id="createBtn" class="btn">Encrypt</button> -->
+                <button id="createBtn" class="btn" aria-live="polite" aria-controls="generatedUrl" aria-expanded="false" aria-label="Encrypt URL and generate secure link">Encrypt & Generate Link</button>
+
                 <!-- <div id="generatedUrl" style="display: none;"></div> -->
                  <!-- Generated URL block (replaces previous #generatedUrl) -->
 <div id="generatedUrl" style="display: none;">
