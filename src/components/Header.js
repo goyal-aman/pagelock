@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../logo.svg'; // Assuming logo.svg will be moved to src/
 
 function Header({ onAboutClick }) {
   return (
