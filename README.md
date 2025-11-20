@@ -1,40 +1,73 @@
-# PageLockURL
+# React + TypeScript + Vite
 
-PageLockURL is a simple, serverless, client-side tool to password-protect a URL. It allows you to take any existing URL, add a password, and generate a new, unique link. Anyone who opens the new link will be prompted for a password before being redirected to the original URL.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-This entire process happens in the user's browser, meaning no data is ever sent to a server. It's a quick and secure way to share links with a specific audience.
+Currently, two official plugins are available:
 
-## Features
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-- **Serverless:** No backend required. Everything is handled by the browser.
-- **Secure:** Uses AES encryption to protect the original URL. The password is never stored.
-- **Easy to Use:** A simple and intuitive interface for creating and unlocking links.
-- **Open Source:** Free to use, modify, and distribute.
+## React Compiler
 
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## How to Use
+## Expanding the ESLint configuration
 
-### Creating a Locked Link
-1.  Open `index.html` in your web browser.
-2.  Enter the URL you want to protect in the "Enter URL to lock" field.
-3.  Enter a password in the "Enter password" field.
-4.  Click the "Create Link" button.
-5.  A new, unique URL will be generated. Copy this URL and share it.
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-### Opening a Locked Link
-1.  Open the generated PageLockURL link in your web browser.
-2.  You will be prompted to enter a password.
-3.  Enter the correct password and click "Unlock".
-4.  If the password is correct, you will be redirected to the original URL.
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-## Disclaimer
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-PageLockURL is provided "as is", without warranty of any kind, express or implied. The authors and contributors are not responsible for any misuse of this tool. Users are responsible for the links they create and share.
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-## Contributing
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```

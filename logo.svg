@@ -1,8 +1,0 @@
-<svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="150" height="40" rx="8" fill="none"/>
-  <text x="38" y="28" font-family="Inter, sans-serif" font-size="20" font-weight="bold" fill="#1F2937">
-    PageLock
-  </text>
-  <path d="M24 15H16C14.8954 15 14 15.8954 14 17V25C14 26.1046 14.8954 27 16 27H24C25.1046 27 26 26.1046 26 25V17C26 15.8954 25.1046 15 24 15Z" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M20 21V19C20 17.8954 19.1046 17 18 17C16.8954 17 16 17.8954 16 19V21" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
