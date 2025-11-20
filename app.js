@@ -95,9 +95,10 @@ decryptBtn.addEventListener('click', () => {
     try {
         const decrypted = CryptoJS.AES.decrypt(encrypted, password);
         const originalUrl = decrypted.toString(CryptoJS.enc.Utf8);
+        const safeOriginalUrl = fixUrl(originalUrl)
 
         if (originalUrl) {
-            window.open(originalUrl, "_blank")
+            window.open(safeOriginalUrl, "_blank")
         } else {
             errorMessage.textContent = 'Incorrect password.';
         }
@@ -123,3 +124,14 @@ window.addEventListener('click', (event) => {
 
 window.addEventListener('hashchange', router);
 window.addEventListener('load', router);
+
+function fixUrl(url) {
+    try {
+        // If it already parses as an absolute URL, return as-is
+      new URL(url);
+      return url;
+     } catch {
+        // Otherwise, prepend https:// and return
+      return "https://" + url;
+    }
+  }
