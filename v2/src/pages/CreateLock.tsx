@@ -30,16 +30,15 @@ const CreateLock: React.FC = () => {
     };
 
     return (
-        <div className="glass-card animate-fade-in">
-            <h1 className="delay-100">PageLock</h1>
-            <p className="delay-200">Securely share links with password protection. No server, purely client-side.</p>
+        <div className="card">
+            <h1>PageLock</h1>
+            <p>Securely share links with password protection. No server, purely client-side.</p>
 
             {!generatedUrl ? (
-                <form onSubmit={handleLock} className="flex-col delay-200">
+                <form onSubmit={handleLock} className="flex-col">
                     <input
                         type="text"
                         placeholder="Enter URL to lock (e.g., google.com)"
-                        className="glass-input"
                         value={targetUrl}
                         onChange={(e) => setTargetUrl(e.target.value)}
                         required
@@ -47,17 +46,16 @@ const CreateLock: React.FC = () => {
                     <input
                         type="password"
                         placeholder="Set a password"
-                        className="glass-input"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
-                    <button type="submit" className="btn-primary">
+                    <button type="submit">
                         Lock Page
                     </button>
                 </form>
             ) : (
-                <div className="animate-fade-in">
+                <div>
                     <div className="copy-box">
                         <span className="copy-text">{generatedUrl}</span>
                         <button
@@ -73,7 +71,7 @@ const CreateLock: React.FC = () => {
                         </button>
                     </div>
                     <p className="success-msg" style={{ marginBottom: '1.5rem' }}>
-                        {copied ? 'Copied to clipboard!' : 'Link generated successfully!'}
+                        {copied ? 'COPIED!' : 'LINK GENERATED!'}
                     </p>
                     <button
                         onClick={() => {
@@ -81,8 +79,7 @@ const CreateLock: React.FC = () => {
                             setTargetUrl('');
                             setPassword('');
                         }}
-                        className="btn-primary"
-                        style={{ background: 'rgba(255,255,255,0.1)' }}
+                        style={{ background: 'transparent', color: 'var(--text-color)' }}
                     >
                         Create Another
                     </button>
