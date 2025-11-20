@@ -10,7 +10,7 @@ const UnlockPage: React.FC = () => {
 
     useEffect(() => {
         if (!hash) {
-            navigate('/');
+            navigate('/v1/');
         }
     }, [hash, navigate]);
 
@@ -57,7 +57,7 @@ const UnlockPage: React.FC = () => {
             </form>
 
             <div style={{ marginTop: '2rem', fontSize: '0.8rem', opacity: 0.6 }}>
-                <a href="/" style={{ color: 'inherit', textDecoration: 'none' }}>Create your own locked page</a>
+                <a href="/v1/" style={{ color: 'inherit', textDecoration: 'none' }}>Create your own locked page</a>
             </div>
         </div>
     );

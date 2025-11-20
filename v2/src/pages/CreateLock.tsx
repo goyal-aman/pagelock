@@ -18,7 +18,7 @@ const CreateLock: React.FC = () => {
         }
 
         const encrypted = encryptUrl(urlToEncrypt, password);
-        const fullUrl = `${window.location.origin}/${encrypted}`;
+        const fullUrl = `${window.location.origin}/v1/${encrypted}`;
         setGeneratedUrl(fullUrl);
         setCopied(false);
     };
