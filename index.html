@@ -1,3 +1,7 @@
+<!--
+  Copyright (c) 2025 Aman Goyal (github.com/goyal-aman). All rights reserved.
+  This work is created by Aman Goyal. If you use or refer to this work, please kindly mention Aman Goyal and link to github.com/goyal-aman.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>  
@@ -480,7 +484,7 @@
         <div class="main-container">
             <div id="createView" class="">
                 <input type="url" id="urlInput" class="form-control" aria-label="Secure link" placeholder="Enter URL to lock (e.g., https://example.com/secret-doc)">
-                <input type="password" id="passwordInput" class="form-control" placeholder="Choose a password strong enough you ex can't guess">
+                <input type="password" id="passwordInput" class="form-control" placeholder="Choose a password strong enough your ex can't guess">
                 <!-- <button id="createBtn" class="btn">Encrypt</button> -->
                 <button id="createBtn" class="btn" aria-live="polite" aria-controls="generatedUrl" aria-expanded="false" aria-label="Encrypt URL and generate secure link">Encrypt & Generate Link</button>
 
@@ -504,6 +508,12 @@
                 <input type="password" id="decryptPasswordInput" class="form-control" placeholder="Enter password to unlock">
                 <button id="decryptBtn" class="btn">Unlock Link</button>
                 <p id="errorMessage" class="text-danger"></p>
+                <div id="unlockedContent" style="display: none; margin-top: 20px;">
+                    <p style="font-weight: 600; margin-bottom: 10px;">Unlocked URL:</p>
+                    <p id="unlockedUrlDisplay" style="word-break: break-all; margin-bottom: 15px; color: var(--primary-color); font-weight: 500;"></p>
+                    <button id="openUrlBtn" class="btn" style="margin-bottom: 10px;">Open Link</button>
+                    <button id="goBackBtn" class="btn" style="background-color: #6B7280; margin-top: 0;">Go Back</button>
+                </div>
             </div>
         </div>
     </main>

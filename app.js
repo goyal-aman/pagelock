@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2025 Aman Goyal (github.com/goyal-aman). All rights reserved.
+ * This work is created by Aman Goyal. If you use or refer to this work, please kindly mention Aman Goyal and link to github.com/goyal-aman.
+ */
 const createView = document.getElementById('createView');
 const decryptView = document.getElementById('decryptView');
 const urlInput = document.getElementById('urlInput');
@@ -7,16 +11,24 @@ const generatedUrl = document.getElementById('generatedUrl');
 const decryptPasswordInput = document.getElementById('decryptPasswordInput');
 const decryptBtn = document.getElementById('decryptBtn');
 const errorMessage = document.getElementById('errorMessage');
+const unlockedContent = document.getElementById('unlockedContent');
+const unlockedUrlDisplay = document.getElementById('unlockedUrlDisplay');
+const openUrlBtn = document.getElementById('openUrlBtn');
+const goBackBtn = document.getElementById('goBackBtn');
 const aboutLink = document.getElementById('aboutLink');
 const aboutModal = document.getElementById('aboutModal');
 const closeButton = document.querySelector('.close-button');
 
+let unlockedOriginalUrl = ''; // To store the URL after decryption
 
 const router = () => {
     const hash = window.location.hash.substring(1);
     if (hash) {
         createView.style.display = 'none';
         decryptView.style.display = 'block';
+        unlockedContent.style.display = 'none'; // Ensure unlocked content is hidden initially
+        decryptPasswordInput.value = ''; // Clear password input
+        errorMessage.textContent = ''; // Clear error message
     } else {
         createView.style.display = 'block';
         decryptView.style.display = 'none';
@@ -95,16 +107,35 @@ decryptBtn.addEventListener('click', () => {
     try {
         const decrypted = CryptoJS.AES.decrypt(encrypted, password);
         const originalUrl = decrypted.toString(CryptoJS.enc.Utf8);
-        const safeOriginalUrl = fixUrl(originalUrl)
+        const safeOriginalUrl = fixUrl(originalUrl);
 
         if (originalUrl) {
-            window.open(safeOriginalUrl, "_blank")
+            unlockedOriginalUrl = safeOriginalUrl; // Store the URL
+            unlockedUrlDisplay.textContent = safeOriginalUrl; // Display the URL
+            unlockedContent.style.display = 'block'; // Show the unlocked content
+            decryptPasswordInput.style.display = 'none'; // Hide password input
+            decryptBtn.style.display = 'none'; // Hide unlock button
+            errorMessage.textContent = ''; // Clear any error messages
         } else {
             errorMessage.textContent = 'Incorrect password.';
         }
     } catch (e) {
         errorMessage.textContent = 'Incorrect password.';
     }
+});
+
+openUrlBtn.addEventListener('click', () => {
+    if (unlockedOriginalUrl) {
+        window.open(unlockedOriginalUrl, "_blank");
+    }
+});
+
+goBackBtn.addEventListener('click', () => {
+    unlockedContent.style.display = 'none';
+    decryptPasswordInput.style.display = 'block';
+    decryptBtn.style.display = 'block';
+    decryptPasswordInput.value = '';
+    errorMessage.textContent = '';
 });
 
 aboutLink.addEventListener('click', (e) => {
@@ -126,6 +157,7 @@ window.addEventListener('hashchange', router);
 window.addEventListener('load', router);
 
 function fixUrl(url) {
+    // thanks BulbusThumbledore
     try {
         // If it already parses as an absolute URL, return as-is
       new URL(url);
