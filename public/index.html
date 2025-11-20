@@ -1,43 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta name="theme-color" content="#4F46E5" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
+    <!-- Primary SEO -->
+    <title>PageLock — Password Protected Links & Encrypted URL Shortener</title>
+    <meta name="description" content="PageLock lets you create password-protected, encrypted links in the browser. Generate shareable links with client-side AES encryption — no server, no account. Perfect for privacy-conscious users, developers, and teams." />
+    <meta name="keywords" content="password protected link, encrypted URL shortener, secure link sharing, client-side encryption link, password locked URL, privacy-first URL shortener, AES encryption in browser, share secret URL safely" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://pagelock.top/" />
+
+    <!-- Social / Open Graph -->
+    <meta property="og:site_name" content="PageLock" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="PageLock — Password Protected Links & Encrypted URL Shortener" />
+    <meta property="og:description" content="Create client-side encrypted links that require a password to open. No backend, no account — privacy-first link sharing." />
+    <meta property="og:url" content="https://pagelock.top/" />
+    <meta property="og:image" content="https://pagelock.top/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PageLock — Password Protected Links" />
+    <meta name="twitter:description" content="Create client-side encrypted links that require a password to open. No backend, no account — privacy-first link sharing." />
+    <meta name="twitter:image" content="https://pagelock.top/og-image.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="%PUBLIC_URL%/logo.svg" type="image/svg+xml" />
+
+    <!-- Preconnect + fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Structured data: WebSite + WebApplication + FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://pagelock.top/#website",
+          "url": "https://pagelock.top/",
+          "name": "PageLock",
+          "description": "Create password-protected, client-side encrypted links. No server, no account.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "PageLock"
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://pagelock.top/#webapp",
+          "name": "PageLock",
+          "url": "https://pagelock.top/",
+          "description": "Generate secure, password-protected links with client-side AES encryption.",
+          "applicationCategory": "SecurityApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://pagelock.top/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is it safe?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Everything happens inside your browser. No data is uploaded, stored, or sent to any server."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long is the locked link valid?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Forever. The link never expires unless you delete it yourself."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you store my URL or password?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Nothing is stored. Both the password and the original URL stay on your device only."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can someone guess my original URL?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. The URL is encrypted using modern encryption (AES). Without the password, the encrypted data is meaningless."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What if I forget the password?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The link can’t be unlocked. There is no recovery option because we never store the key."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can the encrypted link be shared anywhere?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. You can share it on WhatsApp, email, social media, anywhere — only people with the password can unlock it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does PageLock shorten the URL?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not exactly. It creates an encrypted version of your URL, which works like a protected link."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I lock any URL?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. As long as it's a valid link (http or https), you can encrypt it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does PageLock cost anything?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. It’s completely free and has no hidden limits."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need an account?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No account, no login, no signup. Just paste your link → set a password → done."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use it offline?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, after the page loads once. Encryption and decryption still work without internet."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can someone intercept the data while I'm using it?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Since nothing is sent to a server, there is nothing to intercept."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+</body>
 </html>
