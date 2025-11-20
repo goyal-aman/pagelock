@@ -111,7 +111,8 @@ decryptBtn.addEventListener('click', () => {
 
         if (originalUrl) {
             unlockedOriginalUrl = safeOriginalUrl; // Store the URL
-            unlockedUrlDisplay.textContent = safeOriginalUrl; // Display the URL
+            const displayUrl = safeOriginalUrl.length > 70 ? safeOriginalUrl.substring(0, 67) + '...' : safeOriginalUrl;
+            unlockedUrlDisplay.textContent = displayUrl; // Display the URL
             unlockedContent.style.display = 'block'; // Show the unlocked content
             decryptPasswordInput.style.display = 'none'; // Hide password input
             decryptBtn.style.display = 'none'; // Hide unlock button
