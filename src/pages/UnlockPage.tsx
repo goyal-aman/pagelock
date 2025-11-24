@@ -74,7 +74,9 @@ const UnlockPage: React.FC = () => {
                 <div className="flex-col">
                     <p>SUCCESS! HERE IS YOUR LINK:</p>
                     <div className="copy-box">
-                        <span className="copy-text">{decryptedUrl}</span>
+                        <span className="copy-text">
+                            {decryptedUrl.length > 15 ? decryptedUrl.substring(0, 12) + '...' : decryptedUrl}
+                        </span>
                         <button
                             onClick={copyToClipboard}
                             className="icon-btn"

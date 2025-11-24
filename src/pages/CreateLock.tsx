@@ -55,9 +55,11 @@ const CreateLock: React.FC = () => {
                     </button>
                 </form>
             ) : (
-                <div>
+                <div className="boxy-box-box">
                     <div className="copy-box">
-                        <span className="copy-text">{generatedUrl}</span>
+                        <span className="copy-text">
+                            {generatedUrl.length > 15 ? generatedUrl.substring(0, 12) + '...' : generatedUrl}
+                        </span>
                         <button
                             onClick={copyToClipboard}
                             className="icon-btn"
