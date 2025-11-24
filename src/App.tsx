@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import CreateLock from './pages/CreateLock';
 import UnlockPage from './pages/UnlockPage';
+import NotFound from './pages/NotFound';
 import Layout from './components/Layout';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
           <Route path="/" element={<Navigate to="/v1/" replace />} />
           <Route path="/v1/" element={<CreateLock />} />
           <Route path="/v1/:hash" element={<UnlockPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </Router>
