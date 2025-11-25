@@ -11,19 +11,15 @@ const Footer: React.FC = () => {
             opacity: 0.8
         }}>
             <div style={{ marginBottom: '1rem' }}>
-                <nav style={{ marginBottom: '1rem', display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                    <a href="/blog" style={{
-                        textDecoration: 'none',
-                        color: 'var(--text-color)',
-                        fontWeight: 'bold'
-                    }}>Learn More</a>
+                <p style={{ margin: '0 0 0.5rem 0' }}>
                     <a href="/about" style={{
                         textDecoration: 'none',
                         color: 'var(--text-color)',
-                        fontWeight: 'bold'
+                        fontWeight: 'bold',
+                        marginRight: '1rem'
                     }}>About</a>
-                </nav>
-                <p style={{ margin: '0 0 0.5rem 0' }}>Created by <a href="https://github.com/goyal-aman" target="_blank" rel="noopener noreferrer">@goyal-aman</a></p>
+                    Created by <a href="https://github.com/goyal-aman" target="_blank" rel="noopener noreferrer">@goyal-aman</a>
+                </p>
                 <p style={{ margin: 0 }}>&copy; {new Date().getFullYear()} PageLock. All rights reserved.</p>
             </div>
             <div style={{ maxWidth: '400px', margin: '0 auto', fontSize: '0.8rem', opacity: 0.7 }}>
