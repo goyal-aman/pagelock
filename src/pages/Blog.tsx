@@ -4,9 +4,33 @@ import BlogLayout from '../components/BlogLayout';
 
 const blogPosts = [
     {
+        slug: 'ransomware-complete-guide',
+        title: 'Ransomware: The Complete Guide to Understanding and Prevention',
+        description: 'An in-depth analysis of ransomware attacks, how they work, notable incidents, and comprehensive prevention strategies.',
+        date: '2023-11-25'
+    },
+    {
+        slug: 'digital-privacy-guide-2024',
+        title: 'Digital Privacy in 2024: A Complete Guide to Online Tracking and Protection',
+        description: 'Deep dive into browser fingerprinting, tracking cookies, data brokers, and a multi-level privacy protection strategy.',
+        date: '2023-11-20'
+    },
+    {
+        slug: 'zero-day-vulnerabilities-explained',
+        title: 'Zero-Day Vulnerabilities and Exploits: The Hidden Cyber Warfare',
+        description: 'Understanding zero-day exploits, the vulnerability market, famous attacks, and defense strategies.',
+        date: '2023-11-15'
+    },
+    {
+        slug: 'secure-messaging-deep-dive',
+        title: 'Secure Messaging: A Deep Dive into Private Communication',
+        description: 'Comprehensive guide to end-to-end encryption, Signal Protocol, comparing messaging apps, and best practices.',
+        date: '2023-11-10'
+    },
+    {
         slug: 'client-side-encryption-benefits',
-        title: 'Why Client-Side Encryption is Superior',
-        description: 'Exploring the advantages of encrypting data in your browser instead of on a server.',
+        title: 'Client-Side Encryption: Why It\'s the Future of Data Privacy',
+        description: 'In-depth technical exploration of client-side encryption, zero-knowledge architecture, and real-world applications.',
         date: '2023-12-28'
     },
 
