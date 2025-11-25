@@ -4,6 +4,13 @@ import BlogLayout from '../components/BlogLayout';
 
 const blogPosts = [
     {
+        slug: 'client-side-encryption-benefits',
+        title: 'Why Client-Side Encryption is Superior',
+        description: 'Exploring the advantages of encrypting data in your browser instead of on a server.',
+        date: '2023-12-28'
+    },
+
+    {
         slug: 'end-to-end-encryption-explained',
         title: 'End-to-End Encryption Explained',
         description: 'Understanding what end-to-end encryption is and why it matters for your privacy.',
@@ -28,10 +35,28 @@ const blogPosts = [
         date: '2024-01-01'
     },
     {
-        slug: 'client-side-encryption-benefits',
-        title: 'Why Client-Side Encryption is Superior',
-        description: 'Exploring the advantages of encrypting data in your browser instead of on a server.',
-        date: '2023-12-28'
+        slug: 'vpns-explained',
+        title: 'Understanding VPNs: Do You Really Need One?',
+        description: 'What VPNs actually do, common misconceptions, and how to choose a provider.',
+        date: '2023-12-20'
+    },
+    {
+        slug: 'data-breaches-protection',
+        title: 'Data Breaches: What They Are and How to Protect Yourself',
+        description: 'Understanding data breaches and practical steps to safeguard your information.',
+        date: '2023-12-15'
+    },
+    {
+        slug: 'phishing-attacks-guide',
+        title: 'Phishing Attacks: How to Spot and Avoid Them',
+        description: 'Learn to recognize and protect yourself from phishing and social engineering.',
+        date: '2023-12-10'
+    },
+    {
+        slug: 'https-ssl-tls-explained',
+        title: 'HTTPS and SSL/TLS: The Padlock Explained',
+        description: 'What the padlock icon means and why HTTPS is essential for web security.',
+        date: '2023-12-05'
     }
 ];
 
