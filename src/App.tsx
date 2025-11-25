@@ -13,6 +13,10 @@ import VPNs from './pages/blog/VPNs';
 import DataBreaches from './pages/blog/DataBreaches';
 import PhishingAttacks from './pages/blog/PhishingAttacks';
 import HTTPS from './pages/blog/HTTPS';
+import Ransomware from './pages/blog/Ransomware';
+import DigitalPrivacy from './pages/blog/DigitalPrivacy';
+import ZeroDayVulnerabilities from './pages/blog/ZeroDayVulnerabilities';
+import SecureMessaging from './pages/blog/SecureMessaging';
 import Layout from './components/Layout';
 
 function App() {
@@ -34,6 +38,10 @@ function App() {
           <Route path="/blog/data-breaches-protection" element={<DataBreaches />} />
           <Route path="/blog/phishing-attacks-guide" element={<PhishingAttacks />} />
           <Route path="/blog/https-ssl-tls-explained" element={<HTTPS />} />
+          <Route path="/blog/ransomware-complete-guide" element={<Ransomware />} />
+          <Route path="/blog/digital-privacy-guide-2024" element={<DigitalPrivacy />} />
+          <Route path="/blog/zero-day-vulnerabilities-explained" element={<ZeroDayVulnerabilities />} />
+          <Route path="/blog/secure-messaging-deep-dive" element={<SecureMessaging />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
