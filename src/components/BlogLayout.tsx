@@ -7,9 +7,9 @@ interface BlogLayoutProps {
 const BlogLayout: React.FC<BlogLayoutProps> = ({ children }) => {
     return (
         <div style={{
-            maxWidth: '800px',
-            margin: '0 auto',
-            padding: '2rem 1rem',
+            maxWidth: '100%',
+            margin: 'auto',
+            padding: '2rem',
             width: '100%',
             boxSizing: 'border-box'
         }}>
