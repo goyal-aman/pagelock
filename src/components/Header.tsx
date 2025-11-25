@@ -13,7 +13,9 @@ const Header: React.FC = () => {
                 justifyContent: 'space-between',
                 maxWidth: '1200px',
                 margin: '0 auto',
-                padding: '0 1rem'
+                padding: '0 1rem',
+                gap: '1rem',
+                flexWrap: 'wrap'
             }}>
                 <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', color: 'inherit' }}>
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -22,13 +24,21 @@ const Header: React.FC = () => {
                     </svg>
                     <h1 style={{ margin: 0, border: 'none', fontSize: '1.5rem' }}>PAGELOCK</h1>
                 </a>
-                <iframe
-                    src="https://github.com/sponsors/goyal-aman/button"
-                    title="Sponsor goyal-aman"
-                    height="32"
-                    width="114"
-                    style={{ border: 0, borderRadius: '6px' }}
-                />
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                    <a href="/blog" style={{
+                        textDecoration: 'none',
+                        color: 'var(--text-color)',
+                        fontWeight: 'bold',
+                        fontSize: '0.95rem'
+                    }}>Learn More</a>
+                    <iframe
+                        src="https://github.com/sponsors/goyal-aman/button"
+                        title="Sponsor goyal-aman"
+                        height="32"
+                        width="114"
+                        style={{ border: 0, borderRadius: '6px' }}
+                    />
+                </div>
             </div>
         </header>
     );
